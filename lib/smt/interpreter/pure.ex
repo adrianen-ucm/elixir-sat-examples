@@ -1,6 +1,11 @@
 defmodule Smt.Interpreter.Pure do
+  @moduledoc """
+  Not really pure, but an example of a process that
+  collects the instructions and finally returns them back.
+  """
+
   @behaviour Smt.Interpreter.Instance
-  @type t() :: %__MODULE__{pid: pid()}
+  @opaque t() :: %__MODULE__{pid: pid()}
   defstruct [:pid]
 
   @impl Smt.Interpreter.Instance

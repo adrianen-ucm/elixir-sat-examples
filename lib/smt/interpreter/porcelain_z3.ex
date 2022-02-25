@@ -1,6 +1,10 @@
 defmodule Smt.Interpreter.PorcelainZ3 do
+  @moduledoc """
+  Z3 interaction through `Porcelain`.
+  """
+
   @behaviour Smt.Interpreter.Instance
-  @type t() :: %__MODULE__{proc: Porcelain.Process.t()}
+  @opaque t() :: %__MODULE__{proc: Porcelain.Process.t()}
   defstruct [:proc]
 
   @impl Smt.Interpreter.Instance

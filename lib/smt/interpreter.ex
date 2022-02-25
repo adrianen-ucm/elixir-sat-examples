@@ -1,16 +1,18 @@
-defmodule Smt.Interpreter.Instance do
-  @callback with_ref(
-              any(),
-              (Smt.Interpreter.t() -> any())
-            ) :: any()
-
-  @callback with_ref((Smt.Interpreter.t() -> any())) :: any()
-end
-
 defprotocol Smt.Interpreter do
+  @moduledoc """
+  A simple communication protocol with an
+  SMT-LIB interpreter.
+  """
+
+  @doc """
+  Send an SMT-LIB instruction.
+  """
   @spec offer(t(), Smt.Instruction.t()) :: Result.t(nil, any())
   def offer(ref, instruction)
 
+  @doc """
+  Take a pending response from the interpreter.
+  """
   @spec take(t()) :: Result.t(String.t(), any())
   def take(ref)
 end

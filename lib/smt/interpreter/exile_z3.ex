@@ -1,6 +1,10 @@
 defmodule Smt.Interpreter.ExileZ3 do
+  @moduledoc """
+  Z3 interaction through `Exile`.
+  """
+
   @behaviour Smt.Interpreter.Instance
-  @type t() :: %__MODULE__{
+  @opaque t() :: %__MODULE__{
           pid_consumer: pid(),
           pid_producer: pid()
         }

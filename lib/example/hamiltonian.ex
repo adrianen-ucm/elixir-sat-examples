@@ -1,6 +1,15 @@
 defmodule Example.Hamiltonian do
+  @moduledoc """
+  The Hamiltonian path problem expressed as a propositional
+  problem.
+  """
+
   import Result
 
+  @doc """
+  Given a `Graph`, runs the SMT-LIB instructions for
+   this problem by using an `Smt.Interpreter.Instance`.
+  """
   @spec run(Graph.t(any()), module()) :: any()
   def run(graph, interpreter) do
     interpreter.with_ref(fn ref ->

@@ -1,4 +1,4 @@
 defmodule ResultTest do
   use ExUnit.Case
-  doctest Result
+  doctest Result, import: true
 end

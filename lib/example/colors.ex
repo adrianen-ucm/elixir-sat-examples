@@ -1,6 +1,16 @@
 defmodule Example.Colors do
+  @moduledoc """
+  The graph coloring problem expressed as a propositional problem
+  expressed as a propositional problem.
+  """
+
   import Result
 
+  @doc """
+  Given a `Graph` and a number of colors, runs the
+  SMT-LIB instructions for this problem by using an
+  `Smt.Interpreter.Instance`.
+  """
   @spec run(Graph.t(any()), non_neg_integer(), module()) :: any()
   def run(graph, num_colors, interpreter) do
     interpreter.with_ref(fn ref ->

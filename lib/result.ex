@@ -12,7 +12,6 @@ defmodule Result do
   applied function whic is executed with the result
   as its first argument only if the first one succeeds:
 
-      iex> import Result
       iex> {:ok, 2} ~> (fn n -> {:error, n} end).()
       {:error, 2}
 
@@ -20,14 +19,12 @@ defmodule Result do
   some code that produces also a `Result` and is executed only
   if the first one succeeds:
 
-      iex> import Result
       iex> {:error, :happened} ~> then({:ok, :not_happened})
       {:error, :happened}
 
   It also can be surrounded with map to just lift a function
   into is success branch:
 
-      iex> import Result
       iex> {:ok, 2} ~> map((fn n -> n + 2 end))
       {:ok, 4}
   """

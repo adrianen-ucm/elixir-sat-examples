@@ -1,7 +1,21 @@
 defmodule Smt.Render do
+  @moduledoc """
+  Render SMT-LIB code.
+  """
+
+  @doc """
+  Render an `Smt.Instruction` or an `Smt.Formula`
+  into SMT-LIB code.
+  ## Examples
+      iex> Smt.Render.render({:assert, {:->, {:const, false}, {:var, :x}}})
+      "(assert (=> false x))"
+
+      iex> Smt.Render.render({:&&, [{:var, :x}, {:var, :y}, {:var, :z}]})
+      "(and x y z)"
+  """
   @spec render(
-          Smt.Instruction.instruction()
-          | Smt.Formula.formula(String.t())
+          Smt.Instruction.t()
+          | Smt.Formula.t(String.t())
         ) :: String.t()
   def render(instruction) do
     case instruction do
@@ -20,8 +34,8 @@ defmodule Smt.Render do
   end
 
   @spec render_arguments([
-          Smt.Instruction.instruction()
-          | Smt.Formula.formula(String.t())
+          Smt.Instruction.t()
+          | Smt.Formula.t(String.t())
         ]) :: String.t()
   defp render_arguments(arguments) do
     arguments

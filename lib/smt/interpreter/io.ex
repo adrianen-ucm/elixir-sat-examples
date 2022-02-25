@@ -1,6 +1,11 @@
 defmodule Smt.Interpreter.IO do
+  @moduledoc """
+  The SMT-LIB script is written to standard output
+  and results are read from standard input.
+  """
+
   @behaviour Smt.Interpreter.Instance
-  @type t() :: %__MODULE__{device: IO.device()}
+  @opaque t() :: %__MODULE__{device: IO.device()}
   defstruct device: :stdio
 
   @impl Smt.Interpreter.Instance

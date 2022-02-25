@@ -1,6 +1,10 @@
 defmodule Smt.Interpreter.PortZ3 do
+  @moduledoc """
+  Z3 interaction through a `Port`.
+  """
+
   @behaviour Smt.Interpreter.Instance
-  @type t() :: %__MODULE__{port: port()}
+  @opaque t() :: %__MODULE__{port: port()}
   defstruct [:port]
 
   @impl Smt.Interpreter.Instance

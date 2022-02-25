@@ -23,6 +23,7 @@ defmodule Sat.MixProject do
   defp deps do
     [
       {:porcelain, "~> 2.0"},
+      {:ex_doc, "~> 0.28.2", only: :dev},
       {:exile, git: "https://github.com/akash-akya/exile"}
     ]
   end
